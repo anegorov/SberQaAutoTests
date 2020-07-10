@@ -1,0 +1,5 @@
+{
+  "folder_id": "${folder_id}",
+  "texts": ["${texts}"],
+  "targetLanguageCode": "${targetLanguageCode}"
+}
