@@ -7,8 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
-        plugin = {"pretty","json:target/cucumber-report.json"},
-        tags = "@translate")
+                tags = "@translate")
 @Epic(value = "yandex-translate")
 public class YandexTranslateTest {
 

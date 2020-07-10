@@ -13,6 +13,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import java.lang.annotation.Native;
+import java.nio.charset.Charset;
 import java.util.*;
 
 import java.util.stream.Collectors;
@@ -168,7 +170,7 @@ public class Steps extends AbstractSteps implements En {
 
     private String getValueByPath(String path) {
         ResponseBody body = testContext().getResponse().getBody();
-        if(body.asString().toLowerCase().contains("xml")){
+        if(body.asString().toLowerCase().contains("<xml")){
             return body.xmlPath().get(path).toString();
         }
         return body.jsonPath().get(path).toString();
@@ -193,6 +195,13 @@ public class Steps extends AbstractSteps implements En {
                         e -> e.getValue().toString()
                 ));
 
+    }
+
+    public String encodeToUTF8(String stringToEncode) {
+        System.out.println("stringToEncode: " + stringToEncode);
+        byte[] stringBytes = stringToEncode.getBytes(Charset.forName("ISO-8859-1"));
+        System.out.println("stringBytes: " + new String(stringBytes, Charset.forName("UTF8")));
+        return new String(stringBytes, Charset.forName("UTF8"));
     }
 
     @And("wait {int} seconds")

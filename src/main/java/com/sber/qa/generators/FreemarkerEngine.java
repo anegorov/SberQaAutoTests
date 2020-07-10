@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class FreemarkerEngine {
         final ByteArrayOutputStream bos = new ByteArrayOutputStream(8192);
         try (Writer out = new OutputStreamWriter(bos)){
             templ.process(dataModel, out);
-            return new String(bos.toByteArray(), StandardCharsets.UTF_8);
+            return new String(bos.toByteArray(), Charset.forName("windows-1251"));
         }
     }
 

@@ -8,7 +8,6 @@ Feature: Yandex Translator EN to RU
       | yandexPassportOauthToken | {config{auth.yandexPassportOauthToken}} |
     When execute POST
     Then response code is 200
-    And reset payload
     And save response parameter 'iamToken' to 'token'
 
   Scenario Outline: Translator <wordEn> to russian
