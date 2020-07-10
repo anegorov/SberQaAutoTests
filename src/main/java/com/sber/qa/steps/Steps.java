@@ -197,13 +197,6 @@ public class Steps extends AbstractSteps implements En {
 
     }
 
-    public String encodeToUTF8(String stringToEncode) {
-        System.out.println("stringToEncode: " + stringToEncode);
-        byte[] stringBytes = stringToEncode.getBytes(Charset.forName("ISO-8859-1"));
-        System.out.println("stringBytes: " + new String(stringBytes, Charset.forName("UTF8")));
-        return new String(stringBytes, Charset.forName("UTF8"));
-    }
-
     @And("wait {int} seconds")
     public void wait(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);

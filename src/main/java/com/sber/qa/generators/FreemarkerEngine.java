@@ -33,7 +33,8 @@ public class FreemarkerEngine {
         final ByteArrayOutputStream bos = new ByteArrayOutputStream(8192);
         try (Writer out = new OutputStreamWriter(bos)){
             templ.process(dataModel, out);
-            return new String(bos.toByteArray(), Charset.forName("windows-1251"));
+            return new String(bos.toByteArray(), StandardCharsets.UTF_8);
+//            return new String(bos.toByteArray(), Charset.forName("windows-1251"));
         }
     }
 
